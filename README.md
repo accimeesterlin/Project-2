@@ -1,2 +1,2 @@
-# Project-2
-Project 2 Group 7 - GATECH Coding Bootcamp
+# Project2
+Repository for GA Tech Coding Boot Camp - Project 2 Group 7
