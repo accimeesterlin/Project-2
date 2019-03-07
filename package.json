@@ -1,4 +1,31 @@
 {
+<<<<<<< HEAD
+  "name": "Project2",
+  "version": "1.0.0",
+  "description": "Repository for GA Tech Coding Boot Camp - Project 2 Group 7",
+  "main": "index.js",
+  "dependencies": {
+    "node": "^10.15.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-plugin-react": "^7.12.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwilly117/Project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwilly117/Project2/issues"
+  },
+  "homepage": "https://github.com/jwilly117/Project2#readme"
+=======
   "name": "node-handlebars-boilerplate",
   "version": "1.0.0",
   "description": "Project 2 Starter",
@@ -27,4 +54,5 @@
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
   }
+>>>>>>> 9432b7ec9662f80dd6e371aeb25fec2112153907
 }

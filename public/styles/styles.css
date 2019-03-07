@@ -1,3 +1,155 @@
 .list-group-item {
   line-height: 2.5;
 }
+body {
+  background: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  opacity: .9;
+  width: 50%;
+  height: 450px;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
+
+}
+
+.container .left {
+  padding: 0;
+  margin: auto;
+  width: 50%;
+  height: 450px;
+  float: left;
+  background-color: gray;
+
+}
+
+.container .left h1 {
+  color: white;
+  font-size: 30px;
+  padding-top: 40px;
+  padding-left: 18px;
+
+}
+
+.container .left img {
+  display: block;
+  margin: 0 auto;
+  color: white;
+  margin-bottom: 12px;
+  height: 200px;
+  width: 200px;
+
+}
+.one
+{
+  width: 70%;
+  align-content: center;
+  color: white;
+  margin-bottom: 12px;
+}
+.two
+{
+  width: 50%;
+  align-content: center;
+  color: white;
+}
+
+.container .left p {
+  color: white;
+  font-size: 30px;
+}
+
+.container .right {
+  padding: 0;
+  margin: auto;
+  width: 50%;
+  height: 450px;
+  float: right;
+  background-color: rgb(36, 47, 65);
+
+}
+
+.container .right h1 {
+  text-align: center;
+  color: white;
+
+}
+
+.box {
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+  height: 400px;
+
+}
+
+.box p {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.box input
+{
+margin-bottom: 20px;
+width: 100%;
+font-size: 18px;
+color: black; 
+background: transparent;
+
+}
+.box input[type="text"],
+.box input[type="password"]
+{
+  
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 2px solid white;
+  height: 40px;
+}
+.box input[type="text"]:focus,
+.box input[type="password"]:focus
+{
+  border-bottom: 2px solid #2ff7f5;
+  transition: .5s ease-in-out;
+}
+.btn
+{
+width: 100%;
+height: 40px;
+background-color: #2ff7f5;
+color: white;
+letter-spacing: 2px;
+font-weight: bold;
+font-size: bold;
+font-size: 20px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.btn:hover
+{
+background-color: white;
+border: 2px solid #2ff7f5;
+transition: .3s ease-in-out;
+color: #2ff7f5;  
+}
+a{
+  color: white;
+  text-decoration: none;
+}
