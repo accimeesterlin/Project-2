@@ -1,0 +1,88 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js install
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  10.13.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/sharifbey/Desktop/Project-2/package.json: Unexpected token < in JSON at position 2
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:315:13
+
+npm manifest: 
+  {
+  <<<<<<< HEAD
+    "name": "Project2",
+    "version": "1.0.0",
+    "description": "Repository for GA Tech Coding Boot Camp - Project 2 Group 7",
+    "main": "index.js",
+    "dependencies": {
+      "node": "^10.15.2"
+    },
+    "devDependencies": {
+      "eslint": "^5.15.1",
+      "eslint-plugin-react": "^7.12.4"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jwilly117/Project2.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/jwilly117/Project2/issues"
+    },
+    "homepage": "https://github.com/jwilly117/Project2#readme"
+  =======
+    "name": "node-handlebars-boilerplate",
+    "version": "1.0.0",
+    "description": "Project 2 Starter",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "lint": "eslint **/*.js --quiet",
+      "fix": "eslint --fix .",
+      "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    },
+    "license": "ISC",
+    "dependencies": {
+      "dotenv": "^6.0.0",
+      "express": "^4.16.3",
+      "express-handlebars": "^3.0.0",
+      "mysql2": "^1.6.4",
+      "sequelize": "^4.41.2"
+    },
+    "devDependencies": {
+      "chai": "^4.1.2",
+      "chai-http": "^4.0.0",
+      "cross-env": "^5.2.0",
+      "eslint": "^4.19.1",
+      "eslint-config-prettier": "^2.9.0",
+      "eslint-plugin-prettier": "^2.6.2",
+      "mocha": "^5.2.0",
+      "prettier": "^1.13.7"
+    }
+  >>>>>>> 9432b7ec9662f80dd6e371aeb25fec2112153907
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
