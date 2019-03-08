@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var socketIO = require("socket.io");
+// var socketIO = require("socket.io");
 
 var db = require("./models");
 
@@ -44,5 +44,7 @@ db.sequelize.sync(syncOptions).then(function() {
         );
     });
 });
+
+
 
 module.exports = app;
