@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-// var socketIO = require("socket.io");
+var socketIO = require("socket.io");
 
 var db = require("./models");
 
@@ -23,8 +23,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/messageRoute")(app);
 
 var syncOptions = { force: false };
 
