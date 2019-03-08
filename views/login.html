@@ -2,14 +2,16 @@
 <!-- This page needs to have authentification to the form  -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Document</title>
     <link rel="stylesheet" href="../public/styles/styles.css">
-    
-  </head>
-  <body>
-      <div class="container">
+
+</head>
+
+<body>
+    <div class="container">
         <div class="left">
             <h1 align="center">Chit. Chat. Connect.</h1>
             <img src="../public/assets/img/logo_transparent.png" alt="logo_transparent.png">
@@ -29,10 +31,20 @@
                     <input type="password" name="" placeholder="********" required="required">
                     <button class="btn">LOGIN</button>
                     <p>
-                    <a href="#">Forgot Your Password?</a>
+                        <a href="#">Forgot Your Password?</a>
                 </form>
             </div>
         </div>
-     </div>
-  </body>
+    </div>
+</body>
+<script>
+    const socket = io('http://localhost:9000');
+    socket.on('messageFromServer', (dataFromServer) => {
+        console.log(dataFromServer);
+        socket.emit('dataToServer', {
+            data: "data from the client!"
+        })
+    })
+</script>
+
 </html>
