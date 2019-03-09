@@ -1,8 +1,0 @@
-{
-    "python.pythonPath": "/usr/local/opt/python/bin/python2.7",
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#3E2910",
-        "titleBar.activeBackground": "#573A16",
-        "titleBar.activeForeground": "#FDFBF8"
-    }
-}

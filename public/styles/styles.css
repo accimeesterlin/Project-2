@@ -1,124 +1,155 @@
-body{
-    background-color: #3B4048;
-    color: white;
+.list-group-item {
+  line-height: 2.5;
+}
+body {
+  background: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+
 }
 
-.namespaces{
-    background-color: #282c34;
-    min-height: 100vh;
-    color: #ABB2BF;
-    text-align: center;
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  opacity: .9;
+  width: 50%;
+  height: 450px;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
 
 }
 
-.namespaces img{
-    margin-top: 10px;
-    background-color: #ABB2BF;
-    border-radius: 10px;
-    cursor: pointer;
-    width:45px;
+.container .left {
+  padding: 0;
+  margin: auto;
+  width: 50%;
+  height: 450px;
+  float: left;
+  background-color: gray;
+
 }
 
-.room-list{
-    padding-left: 0px;
+.container .left h1 {
+  color: white;
+  font-size: 30px;
+  padding-top: 40px;
+  padding-left: 18px;
+
 }
 
-.room-list li{
-    cursor: pointer;
-    list-style-type: none;
-    padding: 0px 15px;
+.container .left img {
+  display: block;
+  margin: 0 auto;
+  color: white;
+  margin-bottom: 12px;
+  height: 200px;
+  width: 200px;
+
+}
+.one
+{
+  width: 70%;
+  align-content: center;
+  color: white;
+  margin-bottom: 12px;
+}
+.two
+{
+  width: 50%;
+  align-content: center;
+  color: white;
 }
 
-.room-list li span{
-    margin-right: 5px;
+.container .left p {
+  color: white;
+  font-size: 30px;
 }
 
-.room-list li.active{
-    background-color: #61AFEF;
-    color: #fff
+.container .right {
+  padding: 0;
+  margin: auto;
+  width: 50%;
+  height: 450px;
+  float: right;
+  background-color: rgb(36, 47, 65);
+
 }
 
-.rooms{
-    background: #3B4048;
-    min-height: 100vh;
-    color: #ABB2BF;
-    
+.container .right h1 {
+  text-align: center;
+  color: white;
+
 }
 
+.box {
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+  height: 400px;
 
-.chat-panel{
-    background-color: #fff;
-    min-height: 100vh;
-    position: relative;
-    padding-top: 10px;
-}
-.chat-panel .curr-room-text{
-    color: #282c34;
-    font-size: 26px;
-}
-.curr-room-num-users, .search{
-    font-size: 14px;
-    color: #ABB2BF;
-    position: realtive;
 }
 
-.search{
-    margin-top: 5px;
+.box p {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-.search span{
-    position: absolute;
-    left: 25px;
-    top: 10px;
+.box input
+{
+margin-bottom: 20px;
+width: 100%;
+font-size: 18px;
+color: black; 
+background: transparent;
+
+}
+.box input[type="text"],
+.box input[type="password"]
+{
+  
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 2px solid white;
+  height: 40px;
+}
+.box input[type="text"]:focus,
+.box input[type="password"]:focus
+{
+  border-bottom: 2px solid #2ff7f5;
+  transition: .5s ease-in-out;
+}
+.btn
+{
+width: 100%;
+height: 40px;
+background-color: #2ff7f5;
+color: white;
+letter-spacing: 2px;
+font-weight: bold;
+font-size: bold;
+font-size: 20px;
+border-radius: 5px;
+cursor: pointer;
 }
 
-.search input{
-    padding-left: 30px;
+.btn:hover
+{
+background-color: white;
+border: 2px solid #2ff7f5;
+transition: .3s ease-in-out;
+color: #2ff7f5;  
 }
-
-.message-form { 
-    margin: 0px; margin-bottom: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 98%
+a{
+  color: white;
+  text-decoration: none;
 }
-input { 
-    width: 100%; 
-    height: 34px; 
-    color: #ABB2BF; 
-    border: 1px solid #3B4048; 
-    border-radius: 5px;
-    padding-left: 5px;
-}
-#messages { 
-    list-style-type: none; margin: 0; padding: 0; 
-    color: #3B4048;
-    max-height: 85%;
-    overflow: scroll;
-}
-#messages li .user-image{
-    /* width: 50px; */
-    /* display: inline-block; */
-}
-#messages li .user-message{
-    margin-left: 10px;
-    color: #222;
-}
-
-#messages li .user-name-time span{
-    color: #ABB2BF;
-}
-
-#messages li { 
-    padding: 5px 10px; 
-    display: flex;
-    align-items: stretch;
-}
-
-
-
-
-
-
-
-
