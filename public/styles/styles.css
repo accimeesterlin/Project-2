@@ -27,7 +27,7 @@ body {
 
 }
 
-.container .left {
+/* .container .left {
   padding: 0;
   margin: auto;
   width: 50%;
@@ -35,17 +35,18 @@ body {
   float: left;
   background-color: gray;
 
-}
+} */
 
-.container .left h1 {
-  color: white;
+ .container  h1 {
+  margin: 25px;
+  /* color: white;
   font-size: 30px;
   padding-top: 40px;
-  padding-left: 18px;
+  padding-left: 18px; */
 
 }
 
-.container .left img {
+.container  img {
   display: block;
   margin: 0 auto;
   color: white;
@@ -54,7 +55,7 @@ body {
   width: 200px;
 
 }
-.one
+/* .one
 {
   width: 70%;
   align-content: center;
@@ -66,9 +67,9 @@ body {
   width: 50%;
   align-content: center;
   color: white;
-}
+} */
 
-.container .left p {
+/* .container .left p {
   color: white;
   font-size: 30px;
 }
@@ -81,8 +82,8 @@ body {
   float: right;
   background-color: rgb(36, 47, 65);
 
-}
-
+} */
+/* 
 .container .right h1 {
   text-align: center;
   color: white;
@@ -95,7 +96,7 @@ body {
   box-sizing: border-box;
   height: 400px;
 
-}
+} */
 
 .box p {
   color: white;
