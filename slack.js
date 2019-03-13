@@ -1,16 +1,35 @@
+require("dotenv").config();
 const express = require('express');
 const app = express();
 const socketio = require('socket.io')
+var db = require("./models");
+var exphbs = require("express-handlebars");
 
 let namespaces = require('./data/namespaces');
 // console.log(namespaces[0]);
 app.use(express.static(__dirname + '/public'));
 const expressServer = app.listen(9000);
 const io = socketio(expressServer);
+var PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.static("public"));
+
+// Handlebars
+app.engine(
+    "handlebars",
+    exphbs({
+        defaultLayout: "main"
+    })
+);
+app.set("view engine", "handlebars");
 
 
-// io.on = io.of('/').on = io.sockets.on
-// io.emit = io.of('/').emit = io.sockets.emit
+require('./routes/htmlRoutes')
+    // io.on = io.of('/').on = io.sockets.on
+    // io.emit = io.of('/').emit = io.sockets.emit
 io.on('connection', (socket) => {
     // console.log(socket.handshake)
     // build an array to send back with the img and endpoing for each NS
@@ -89,3 +108,24 @@ function updateUsersInRoom(namespace, roomToJoin) {
         io.of(namespace.endpoint).in(roomToJoin).emit('updateMembers', clients.length)
     })
 }
+
+var syncOptions = { force: false };
+
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+    syncOptions.force = true;
+}
+
+
+db.sequelize.sync(syncOptions).then(function() {
+    app.listen(PORT, function() {
+        console.log(
+            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+            PORT,
+            PORT
+        );
+    });
+});
+
+module.exports = app;
