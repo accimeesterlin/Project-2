@@ -29,7 +29,7 @@ module.exports = function(app) {
         res.render("404");
     });
     //Load main.html
-    app.get('/ ', function(req, res) {
+    app.get('/', function(req, res) {
         res.sendFile(path.join(__dirname, "./layouts/main.html"));
     });
 
