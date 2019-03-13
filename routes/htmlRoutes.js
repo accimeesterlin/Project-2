@@ -25,3 +25,22 @@ module.exports = function(app) {
     res.render("404");
   });
 };
+
+//Load main.html
+app.get( "/ ", function (req, res) {
+  res.render('../views/layouts/main.html')
+});
+
+//Load login-page.html
+app.get("/Login", function (req, res) {
+  res.render('../views/login-page.html')
+});
+
+//Load signup-page.html
+app.get("/Signup", function (req, res) {
+  res.render('../views/signup-page.html')
+});
+
+
+
+
