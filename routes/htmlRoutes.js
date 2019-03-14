@@ -30,7 +30,7 @@ module.exports = function(app) {
     });
     //Load main.html
     app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, "./layouts/main.html"));
+        res.sendFile(path.join(__dirname, "../login-page.html"));
     });
 
     //Load login-page.html

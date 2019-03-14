@@ -28,9 +28,9 @@ app.engine(
 app.set("view engine", "handlebars");
 
 
-require('./routes/htmlRoutes')
-    // io.on = io.of('/').on = io.sockets.on
-    // io.emit = io.of('/').emit = io.sockets.emit
+require('./routes/htmlRoutes')(app);
+// io.on = io.of('/').on = io.sockets.on
+// io.emit = io.of('/').emit = io.sockets.emit
 io.on('connection', (socket) => {
     // console.log(socket.handshake)
     // build an array to send back with the img and endpoing for each NS
@@ -110,23 +110,23 @@ function updateUsersInRoom(namespace, roomToJoin) {
     })
 }
 
-// var syncOptions = { force: false };
+var syncOptions = { force: false };
 
-// // If running a test, set syncOptions.force to true
-// // clearing the `testdb`
-// if (process.env.NODE_ENV === "test") {
-//     syncOptions.force = true;
-// }
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+    syncOptions.force = true;
+}
 
 
-// db.sequelize.sync(syncOptions).then(function() {
-//     app.listen(PORT, function() {
-//         console.log(
-//             "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-//             PORT,
-//             PORT
-//         );
-//     });
-// });
+db.sequelize.sync(syncOptions).then(function() {
+    app.listen(PORT, function() {
+        console.log(
+            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+            PORT,
+            PORT
+        );
+    });
+});
 
 module.exports = app;
