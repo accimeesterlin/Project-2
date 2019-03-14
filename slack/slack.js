@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const socketio = require('socket.io')
+const $ = require('jquery')
+const Sequelize = require('sequelize');
 
 let namespaces = require('./data/namespaces');
 // console.log(namespaces[0]);
@@ -89,3 +91,17 @@ function updateUsersInRoom(namespace, roomToJoin){
         io.of(namespace.endpoint).in(roomToJoin).emit('updateMembers',clients.length)
     })
 }
+
+$('#connect_button').on('click',function loginPage (name, email, password){
+let name = '#form-name';
+let email = "#form-email";
+let password = "#form-password";
+console.log(this);
+//click function stores name, email, and pasword in the exampledb
+
+
+
+
+})
+
+loginPage();
