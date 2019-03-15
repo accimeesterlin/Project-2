@@ -20,7 +20,11 @@ const clientDir = path.join(__dirname, '../client');
 let namespaces = require('./data/namespaces');
 // console.log(namespaces[0]);
 // app.use(express.static(__dirname + '/public'));
+
 var expressServer = app.listen(8000);
+
+var expressServer = app.listen(9000);
+
 var io = socketio(expressServer);
 var PORT = process.env.PORT || 3000;
 
