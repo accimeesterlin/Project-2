@@ -5,8 +5,11 @@ const exphbs = require("express-handlebars");
 const socketio = require('socket.io')
 let namespaces = require('./data/namespaces');
 // console.log(namespaces[0]);
-app.use(express.static("public"));
-// app.use(express.static(__dirname + "./views"));
+// app.use('/assets', express.static(path.join(__dirname, 'public')))
+
+
+//  app.use(express.static(__dirname + "./views"));
+app.use('/public', express.static('public'))
 // app.use(express.static(__dirname + '/views'));
 const expressServer = app.listen(9000);
 const io = socketio(expressServer);

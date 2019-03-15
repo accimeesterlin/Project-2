@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function (app, path) {
     app.get('/login', function (req, res) {
-      res.sendFile(path.join(__dirname, "../views/login-page.html"));
+      res.sendFile(path.join(__dirname,"../views/login-page.html"));
     });
     // Load index page
     //   app.get("/", function (req, res) {
