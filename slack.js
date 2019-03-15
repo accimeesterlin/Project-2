@@ -1,13 +1,20 @@
 const express = require('express');
 const app = express();
+const path = require("path");
+const exphbs = require("express-handlebars");
 const socketio = require('socket.io')
-
 let namespaces = require('./data/namespaces');
 // console.log(namespaces[0]);
-app.use(express.static(__dirname + '/public'));
+app.use(express.static("public"));
+// app.use(express.static(__dirname + "./views"));
+// app.use(express.static(__dirname + '/views'));
 const expressServer = app.listen(9000);
 const io = socketio(expressServer);
 
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+
+require("./routes/htmlRoutes")(app, path);
 
 // io.on = io.of('/').on = io.sockets.on
 // io.emit = io.of('/').emit = io.sockets.emit
