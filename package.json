@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "Project-2",
     "version": "1.0.0",
     "description": "Repository for GA Tech Coding Boot Camp - Project 2 Group 7",
@@ -46,4 +47,51 @@
         "mocha": "^5.2.0",
         "prettier": "^1.13.7"
     }
+=======
+  "name": "Project-2",
+  "version": "1.0.0",
+  "description": "Repository for GA Tech Coding Boot Camp - Project 2 Group 7",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-2-group-7/Project-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/project-2-group-7/Project-2/issues"
+  },
+  "homepage": "https://github.com/project-2-group-7/Project-2#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "eslint": "^5.15.1",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "io": "^1.0.0",
+    "jquery": "^3.3.1",
+    "method-override": "^3.0.0",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0",
+    "sequelize": "^4.43.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "cross-env": "^5.2.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.13.7"
+  }
+>>>>>>> origin
 }

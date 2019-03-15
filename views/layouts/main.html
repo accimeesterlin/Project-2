@@ -26,17 +26,28 @@
          <div class="row">
             <div class="col-lg-6 col-md-6">
               <button class="btn btn-block btn-round" data-toggle="modal" data-target="#loginModal">
-                <i class="material-icons"></i> Login
+                <i class="material-icons" id="click_login"></i> Login
 
               </button>
             </div>
             <div class="col-lg-6 col-md-6">
               <button class="btn btn-block btn-round" data-toggle="modal" data-target="#signupModal">
-                <i class="material-icons"></i> SignUp
+                <i class="material-icons"  id="click_Register"></i> SignUp
               </button>
             </div>
           </div>
         </div>
-     
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+         $("#click_login").on('click',function(){
+          //send to view for login
+          window.location.href='views/login-page.html';
+        
+         })
+         $("#click_Register").on('click',function(){
+          //send to view for Register
+          window.location.href='views/signup-page.html';
+         })
+        </script>
   </body>
 </html>
