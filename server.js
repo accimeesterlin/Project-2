@@ -113,8 +113,8 @@ app.use(userController);
 app.use(viewsController);
 
 
-// // Requiring our models for syncing
-// const db = require('./models/index');
+// Requiring our models for syncing
+const DB = require('./models/index');
 
 require('./routes/htmlRoutes')(app);
 // io.on = io.of('/').on = io.sockets.on
