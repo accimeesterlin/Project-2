@@ -1,87 +1,38 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
+const path = require("path");
+const exphbs = require("express-handlebars");
 const socketio = require('socket.io')
-var db = require('./models');
-var exphbs = require('express-handlebars');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var customAuthMiddleware = require('./middleware/custom-auth-middleware');
-var path = require('path');
-
-// controller imports
-const userController = require('./controllers/user-controller');
-const viewsController = require('./controllers/views-controller');
-
-// directory references
-const clientDir = path.join(__dirname, '../client');
-
-
 let namespaces = require('./data/namespaces');
 // console.log(namespaces[0]);
-// app.use(express.static(__dirname + '/public'));
-
-var expressServer = app.listen(8000);
-
-var expressServer = app.listen(9000);
-
-var io = socketio(expressServer);
-var PORT = process.env.PORT || 3000;
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static('public'));
-app.use(express.static('views'));
-
-// Express middleware that allows POSTing data
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-// use the cookie-parser to help with auth token,
-// it must come before the customAuthMiddleware
-app.use(cookieParser());
-app.use(customAuthMiddleware);
-
-// serve up the public folder so we can request static
-// assets from our html document
-app.use('/assets', express.static(clientDir));
-
-// set up handlebars
-app.set('views', path.join(__dirname, '/views'));
-
-// Handlebars
-app.engine(
-    'handlebars',
-    exphbs({
-        defaultLayout: 'main'
-    })
-);
-app.set('view engine', 'handlebars');
-
-// hook up our controllers
-app.use(userController);
-app.use(viewsController);
+// app.use('/assets', express.static(path.join(__dirname, 'public')))
 
 
-// Requiring our models for syncing
-const DB = require('./models/index');
+//  app.use(express.static(__dirname + "./views"));
+app.use('/public', express.static('public'))
+// app.use(express.static(__dirname + '/views'));
+const expressServer = app.listen(9000);
+const io = socketio(expressServer);
 
-require('./routes/htmlRoutes')(app);
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+
+require("./routes/htmlRoutes")(app, path);
+
 // io.on = io.of('/').on = io.sockets.on
 // io.emit = io.of('/').emit = io.sockets.emit
-io.on('connection', function(socket) {
+io.on('connection', (socket) => {
     // console.log(socket.handshake)
     // build an array to send back with the img and endpoing for each NS
     let nsData = namespaces.map((ns) => {
-        return {
-            img: ns.img,
-            endpoint: ns.endpoint
-        };
-    });
-    // console.log(nsData)
-    // sned the nsData back to the client. We need to use socket, NOT io, because we want it to 
-    // go to just this client. 
+            return {
+                img: ns.img,
+                endpoint: ns.endpoint
+            }
+        })
+        // console.log(nsData)
+        // sned the nsData back to the client. We need to use socket, NOT io, because we want it to 
+        // go to just this client. 
     socket.emit('nsList', nsData);
 })
 
@@ -108,7 +59,7 @@ namespaces.forEach((namespace) => {
                 //     console.log(clients.length)
                 //     numberOfUsersCallback(clients.length);
                 // })
-            const nsRoom = namespace.rooms.find(function(room) {
+            const nsRoom = namespace.rooms.find((room) => {
                 return room.roomTitle === roomToJoin;
             })
             nsSocket.emit('historyCatchUp', nsRoom.history)
@@ -148,24 +99,3 @@ function updateUsersInRoom(namespace, roomToJoin) {
         io.of(namespace.endpoint).in(roomToJoin).emit('updateMembers', clients.length)
     })
 }
-
-var syncOptions = { force: false };
-
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-    syncOptions.force = true;
-}
-
-
-db.sequelize.sync(syncOptions).then(function() {
-    app.listen(PORT, function() {
-        console.log(
-            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-            PORT,
-            PORT
-        );
-    });
-});
-
-module.exports = app;
