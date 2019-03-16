@@ -20,7 +20,11 @@ const clientDir = path.join(__dirname, '../client');
 let namespaces = require('./data/namespaces');
 // console.log(namespaces[0]);
 // app.use(express.static(__dirname + '/public'));
+
 var expressServer = app.listen(8000);
+
+var expressServer = app.listen(9000);
+
 var io = socketio(expressServer);
 var PORT = process.env.PORT || 3000;
 
@@ -60,8 +64,8 @@ app.use(userController);
 app.use(viewsController);
 
 
-// // Requiring our models for syncing
-// const db = require('./models/index');
+// Requiring our models for syncing
+const DB = require('./models/index');
 
 require('./routes/htmlRoutes')(app);
 // io.on = io.of('/').on = io.sockets.on
