@@ -28,9 +28,9 @@
     "homepage": "https://github.com/project-2-group-7/Project-2#readme",
     "dependencies": {
         "bcrypt": "^3.0.4",
-        "cookieparser": "^0.1.0",
         "body-parser": "^1.18.3",
         "cookie-parser": "^1.4.4",
+        "cookieparser": "^0.1.0",
         "dotenv": "^6.2.0",
         "eslint": "^5.15.1",
         "express": "^4.16.4",
