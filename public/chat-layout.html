@@ -10,7 +10,7 @@
     <div class="row">
 
         <div class="col-sm-1 namespaces">
-            <h3>Chit-Chat</h3>
+            <h3><u>Chit-Chat</u></h3>
             <div class="namespace" ns="/wiki"><img src="../images/chitchat.png"></div>
             <h4>Chit. Chat. Connect.</h4>
            <!-- <div class="namespace" ns="/mozilla"><img src="https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png"></div>
@@ -25,15 +25,19 @@
         <div class="col-sm-2 rooms">
             <h2>Messages</h2>
             <ul class="room-list">
-                <h3>Chatrooms</h3>
+                <h3><span class="glyphicon glyphicon-th-large"></span>  Chatrooms</h3>
                 <li class="room-square" onclick="joinRoom(1,2)"><span class="glyphicon glyphicon-lock"></span>Main Room</li>
                 <li class="room-square" onclick="joinRoom(2,1)"><span class="glyphicon glyphicon-globe"></span>Meeting Room</li>
 
-                <h3>Private Messages</h3>
+                <h3> <span class="glyphicon glyphicon-th-large"></span>  Private Messages</h3>
 
                 <li class="room-square" onclick="joinRoom(2,1)"><span class="glyphicon glyphicon-user"></span>Joel Brown</li>
                 <li class="room-square" onclick="joinRoom(2,1)"><span class="glyphicon glyphicon-user"></span>Princess Wilson</li>
                 <li class="room-square" onclick="joinRoom(2,1)"><span class="glyphicon glyphicon-user"></span>Ezra Assefa</li>
+                <li class="room-square" onclick="joinRoom(2,1)"><span class="glyphicon glyphicon-user"></span>Esterlin Accime</li>
+                <li class="room-square" onclick="joinRoom(2,1)"><span class="glyphicon glyphicon-user"></span>Jack Storrs</li>
+                <li class="room-square" onclick="joinRoom(2,1)"><span class="glyphicon glyphicon-user"></span>Angry Kurt</li>
+
             </ul>
 
             <div class="add-room">
@@ -46,7 +50,7 @@
 
         <div class="chat-panel col-sm-9">
             <div class="room-header row col-6">
-                <div class="col-sm-3"><span class="curr-room-text">Current Room</span> <span class="curr-room-num-users">Users <span class="glyphicon glyphicon-user"></span></span></div>
+                <div class="col-sm-3"><span class="curr-room-text"><u>Current Room</u></span> <span class="curr-room-num-users">Users <span class="glyphicon glyphicon-user"></span></span></div>
                 <div class="col-sm-3 search pull-right">
                         <span class="glyphicon glyphicon-search"></span>
                     <input type="text" id="search-box" placeholder="Search" />
@@ -125,6 +129,8 @@
                     <div class="user-message">
                         <div class="user-name-time">rbunch <span>2:59 pm</span></div>
                         <div class="message-text">What day is tomorrow?.</div>
+                        <img src="https://allenpike.com/images/2015/javascript-guy.jpg">
+
                     </div>
                 </li>
                 <li>

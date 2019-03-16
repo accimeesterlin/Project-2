@@ -1,4 +1,6 @@
 var db = require("../models");
+var express = require('express');
+
 
 module.exports = function(app) {
   // Load index page
@@ -24,4 +26,10 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+
+
+app.get('/', function(req,res){
+  res.sendfile(__dirname + '../views/login-page.html');
+ }); 
+
 };

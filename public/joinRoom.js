@@ -16,7 +16,7 @@ function joinRoom(roomName){
     })
     nsSocket.on('updateMembers',(numMembers)=>{
         document.querySelector('.curr-room-num-users').innerHTML = `${numMembers} <span class="glyphicon glyphicon-user"></span>`
-        document.querySelector('.curr-room-text').innerText = `${roomName}`
+        document.querySelector('.curr-room-text').innerText =  `${roomName}`
     })
     let searchBox = document.querySelector('#search-box');
     searchBox.addEventListener('input',(e)=>{

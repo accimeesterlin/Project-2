@@ -1,0 +1,244 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="./styles.css">
+
+
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+<div class="container-fluid">
+
+
+    <div class="row">
+        
+
+        <!-- First Column---------------------------------------------------------------------------------------------------->
+
+        <div class="col-sm-1 namespaces">
+                <div>
+                        <h1><u>Chit-Chat</u></h1>
+                </div>
+            <!-- JS will update this dynamically!! -->
+            <div id="about">
+                    <h5>About us</h5>
+                </div>
+        </div>
+
+        <!-- Second Column---------------------------------------------------------------------------------------------------->
+
+        <div class="col-sm-2 rooms">
+            <h3><u><span class="glyphicon glyphicon-th-large"></span>  Chatrooms</u></h3>
+            <ul class="room-list">
+                <!-- JS will update this dynamically!! -->
+            </ul>
+            <div class="add-room">
+                    <input id = "new-room" class="btn btn-primary" type="submit" value="Create Room" />
+            </div>
+
+            <script>
+                $("#new-room").click(function(){
+                     alert("The button was clicked.");
+                     //create an input field for our user's chatroom name that we can get the value of to send to our server
+                     //we also need to know what namespace we're in (which we can figure out a variety of ways)
+                     $.ajax({
+                        url : '/create-chatroom',
+                        type : 'POST',
+                        data : {
+                            name : "whateverWeGetFromtheInputField",//$("#someElement").val(),
+                            namespace: "howeverWeGetTheNamespace" 
+                        },
+                        dataType:'json',
+                        success : function(data) {              
+                            //we don't really know what's gonna happen here yet
+                            data.namespace
+                        },
+                        error : function(request,error)
+                        {
+                            alert("Request: "+JSON.stringify(request));
+                        }
+                        });
+                    });
+            </script>
+        </div>
+
+        <!-- Third Collumn---------------------------------------------------------------------------------------------------->
+
+
+        <div class="chat-panel col-sm-7">
+            <div class="room-header row col-6">
+                <div class="col-sm-3"><span class="curr-room-text">Current Room</span> <span class="curr-room-num-users">Users <span class="glyphicon glyphicon-user"></span></span></div>
+                <div class="col-sm-3 search pull-right">
+                        <span class="glyphicon glyphicon-search"></span>
+                    <input type="text" id="search-box" placeholder="Search" />
+                </div>
+            </div> 
+            <div class="message-form">
+
+                <form id="user-input">
+                    <div class="col-sm-10">
+                        <input id="user-message" type="text" placeholder="Enter your message" />
+                    </div>
+                    
+                     <div class="col-sm-1">
+                        <input class="btn btn-primary" type="submit" value="send" />
+                    </div>
+
+                    <div class="col-sm-1">
+                        
+                            <button type="button" id="modalbtn" class="btn btn-primary" data-toggle="modal" data-target="#mymodal">
+                                    Gifs
+                            </button>
+                   
+                            
+                    <!-- Button trigger modal -->
+                    
+
+
+                </div>
+                </form>
+            </div>
+            <ul id="messages" class="col-sm-12">
+                <li>
+                    <div class="user-image">
+                        <img src="https://via.placeholder.com/30" />
+                    </div>
+                    <div class="user-message">
+                        <div class="user-name-time">rbunch <span>1:25 pm</span></div>
+                        <div class="message-text">I went running today.</div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="user-image">
+                        <img src="https://via.placeholder.com/30" />
+                    </div>
+                    <div class="user-message">
+                        <div class="user-name-time">rbunch <span>2:25 pm</span></div>
+                        <div class="message-text">I'm getting my tires changed this afternoon.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="user-image">
+                        <img src="https://via.placeholder.com/30" />
+                    </div>
+                    <div class="user-message">
+                        <div class="user-name-time">rbunch <span>2:29 pm</span></div>
+                        <div class="message-text">I like history.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="user-image">
+                        <img src="https://via.placeholder.com/30" />
+                    </div>
+                    <div class="user-message">
+                        <div class="user-name-time">rbunch <span>2:59 pm</span></div>
+                        <div class="message-text">What day is tomorrow?.</div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- Fourth Collumn---------------------------------------------------------------------------------------------------->
+        <div class="col-sm-2 user-panel">
+            <h3> Jake Williams</h3>
+            <div class="card" style="width: 18rem;">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8AAACWlpaampr6+vrr6+uxsbHn5+e/v7/x8fGSkpL8/PwjIyOioqKlpaW7u7vf399lZWUdHR1KSkra2tp3d3fJycmGhoYvLy8RERGMjIw7Ozurq6tZWVk2NjbV1dVRUVFra2sUFBSAgIAoKChERERfX183Nzd5eXk8uGLjAAAEnElEQVR4nO3c6VriMBQGYEPLvq8C4gAKjvd/hUNVHikmaZbTnlPne/9b82nbbCd9eAAAAAAAAAAAAAAAAAAAAAD4jSb78ShpJKPxfsLdFHrt1nKtbq2XrTZ3o+gstgOlM+j9jv/l+Ekb79N5zN28aLsXS77MrMXdxCjjgngfXjrczQzWnLsEvHjucjc1TMsxX6aWj+PSI6BSr9zN9Zba3qA6B+4We2rOPANexgC1ehjb3vkuXmoUsRsS8DLGSbkb7qp/Ckuonrhb7sq1G/xpyt10N9vggEoNuRvvYhURUKk6zDaiAqoBd/OLPcYllH+fTiIDKiW9V3yOTrjkjmC3jw6oVJM7hNWUIKHoaUaTIKBSkgdvPZKEO+4YFhuShIKHpxTvmYzcd03MiPSW3Nv0L1HCN+4gJilRQKW4k5jEzSpuSd20ScgSSl0F91shtelxRzHwXSI1kzr69l8jNZlzR9HrkwVUa+4senSdhZpxZ9EjTCi0QyS8S1WfO4weXcANdxQDunep0OfwYV3cdEdC36UE62xXUicXsYvB3x65oxjsyBJKrbGhWsRQasEdxYQsIXcQo/Ct0bwDdxAjqimw3P2nBVFCwduk+jpSX1L7+wzNbTrijmFBszMjeo/0SBDwnTuEVfwmt9zF0i/xW6RS19mugmr2cuRuPH2JnWBIXQy+EbdLWoOKocgZhuDhzLeYzXy5I9KcQ3DAmlRfhg9PBZco3Amsgt6IHq7lBY1P61TJHhRxUKuAlxvVd3n4LHSrwsJvz1vqCqmVz8kuqaUJBbquHeNUcjWindsJyxV3M6MMC/NJXcF317IVocxr+gDeWWz1B6H+JLWYSbiZDKf5eePsuBO+HhMgnXR2o0yr067vyxMAAAAAQI7QSVFNJlOrpToF/uhJLcWvaLS3H9PAwJ/OfnSzlTxvHF8L28JqC68lVXOhX41KG98z+LBtwJt6o0TeFDnN7d+Hneo5317iUVbG9P58bMguy/1uTk9Qxp/lz42Aq/zcHZdyHniv2/L1v4zuyM1pT99cb339HpP/n1+/Os5f5NbRtivgn2g8F8Y7BugfTe3y3hB8N17pWErT3ViLg/x6fdulNmyHE+wVwX71W/ZaMaaq4Tdro/zurqJrcZQSOZQibJ0vZn4Ir/5UXqnhdPDA9eZyqoSrePJo7CTy3EbgjqV+lXYbzmUWLt98OrperMJJ1ci1TUqdi56fpkdpUWVb/n7nDO1/ecprkfGpBMoczO+Ive+nNCqJ6FQjk/esf0l0Ak7zVfC6CSvjPjXu15cW26Lv0euV3mmEn6fYHIerSTftp93FKok4eFJy198P+8NTKvnsHtU52BilHtZ/5U73IWQRyJHjWK10pa3eBJbg09uUtc4o4SH8VNJ0sbBUtEKljG3iTxZSKqNXlHOPZkq4T33H22UjH6BSfuaKROg+sxHVx1fpEG/b0HxKgBZtpyhjuJaXUAYUM5rJoUxI9+1VSpRPosyElLcpEvJAQiREQn5IiIRIyA8JkRAJ+SEhEiIhPyT00Sj+dQwo94JXvYY8PfGnwAAAAAAAAAAAAAAAAAAAAOC/8w8x/keG0L7F4QAAAABJRU5ErkJggg==" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">User Settings</h5>
+                      <p class="card-text">Some qutitle and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+
+                <br>
+                <div id="Add-Gifs">
+                    <h3> Add Some Gifs!</h3>
+                        <input type="text" id="food-input">
+                        <br> <br>
+                        <input id="add-food" type="submit" value="Submit">
+                </div>
+                <div id="images">
+                    
+                </div>
+        </div>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/scripts.js"></script>
+<script src="/joinNs.js"></script>
+<script src="/joinRoom.js"></script>
+<script>
+        $('#exampleModalCenter').on('shown.bs.modal', function () {
+          $('#myInput').trigger('focus')
+        })</script>
+        <script>
+                $("#modalbtn").click(function(){
+                    $('#exampleModalCenter').modal('show')
+
+                })
+            </script>
+
+<script>
+    $("#add-food").on("click", function(){
+        
+        // var type = $(this).attr("data-type");
+        let input = $("#food-input").val();
+        console.log(input);
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=dc6zaTOxFJmzC&limit=10";
+        
+        $.ajax({
+            url:queryURL,
+            method: "GET"
+        })
+
+        .then(function(response){
+            var results = response.data;
+
+            for(let i = 0; i< results.length; i++ ){
+                var foodDiv = $("<div class=\"food-item\">");
+                
+                var rating = results[i].rating;
+                var p = $("<p>").text("Rating: " + rating);
+
+                var animated = results[i].images.fixed_height.url;
+                var still = results[i].images.fixed_height_still.url;
+                
+                var foodImage = $("<img>");
+                foodImage.attr("src", still);
+                foodImage.attr("data-still", still);
+                foodImage.attr("data-animate", animated);
+                foodImage.attr("data-state", "still");
+                foodImage.addClass("food-image");
+                
+              //  foodDiv.append(p);
+                foodDiv.append(foodImage);
+                
+                $("#images").append(foodDiv);
+            }
+        })
+    });
+
+    let messagesDiv = document.querySelector('#messages');
+    $(document).on("click", ".food-image", function(){
+            $('#messages').append(this);
+    })
+
+
+    $(document).on("click", ".food-image", function(){
+    let state = $(this).attr("data-state");
+
+    if (state === "still"){
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    }
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+
+
+});
+</script>

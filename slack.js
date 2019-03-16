@@ -20,9 +20,11 @@ io.on('connection',(socket)=>{
             endpoint: ns.endpoint
         }
     })
+
     // console.log(nsData)
     // sned the nsData back to the client. We need to use socket, NOT io, because we want it to 
     // go to just this client. 
+    
     socket.emit('nsList',nsData);
 })
 
@@ -89,3 +91,14 @@ function updateUsersInRoom(namespace, roomToJoin){
         io.of(namespace.endpoint).in(roomToJoin).emit('updateMembers',clients.length)
     })
 }
+
+(
+app.post("/create-chatroom", function(req, res) {
+    let chatroomName = req.body.name;
+    let namespace = req.body.namespace;
+    if (namespaces.indexOf(req.body.namespace) != -1) {
+        namespaces[req.body.namespace].addRoom(req.body.name, req.body.namespace);
+        res.send (namespaces[req.body.namespaces])
+        //instead of pushing this to an array, on a namespace object, we need a "namespace" table and we need to add the room to it. 
+    }
+}))
