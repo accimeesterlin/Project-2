@@ -26,8 +26,32 @@
         "url": "https://github.com/project-2-group-7/Project-2/issues"
     },
     "homepage": "https://github.com/project-2-group-7/Project-2#readme",
+    "name": "Project-2",
+    "version": "1.0.0",
+    "description": "Repository for GA Tech Coding Boot Camp - Project 2 Group 7",
+    "main": "server.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "mocha",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/project-2-group-7/Project-2.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/project-2-group-7/Project-2/issues"
+    },
+    "homepage": "https://github.com/project-2-group-7/Project-2#readme",
     "dependencies": {
         "bcrypt": "^3.0.4",
+        "cookie-parser": "^1.4.4",
+        "cookieparser": "^0.1.0",
         "body-parser": "^1.18.3",
         "cookie-parser": "^1.4.4",
         "cookieparser": "^0.1.0",
@@ -55,4 +79,5 @@
         "mocha": "^5.2.0",
         "prettier": "^1.13.7"
     }
+
 }
