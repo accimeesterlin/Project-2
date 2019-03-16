@@ -14,10 +14,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link rel="stylesheet" href="../../public/styles/styles.css">
-  <link href="../../public/ assets copy/css/material-kit.css" rel="stylesheet" />
+  <link href="../../public/ assets/css/material-kit.css" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../../public/ assets copy/demo/demo.css" rel="stylesheet" />
-  <link href="../../public/ assets copy/demo/vertical-nav.css" rel="stylesheet" />
+  <link href="../../public/ assets/demo/demo.css" rel="stylesheet" />
+  <link href="../../public/ assets/demo/vertical-nav.css" rel="stylesheet" />
   </head>
   <body style="background-color: rgba(0, 0, 0, 0.5);">
      <div class="container">
@@ -26,17 +26,28 @@
          <div class="row">
             <div class="col-lg-6 col-md-6">
               <button class="btn btn-block btn-round" data-toggle="modal" data-target="#loginModal">
-                <i class="material-icons"></i> Login
+                <i class="material-icons" id="click_login"></i> Login
 
               </button>
             </div>
             <div class="col-lg-6 col-md-6">
               <button class="btn btn-block btn-round" data-toggle="modal" data-target="#signupModal">
-                <i class="material-icons"></i> SignUp
+                <i class="material-icons"  id="click_Register"></i> SignUp
               </button>
             </div>
           </div>
         </div>
-     
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+         $("#click_login").on('click',function(){
+          //send to view for login
+          window.location.href='views/login-page.html';
+        
+         })
+         $("#click_Register").on('click',function(){
+          //send to view for Register
+          window.location.href='views/signup-page.html';
+         })
+        </script>
   </body>
 </html>
