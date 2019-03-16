@@ -11,12 +11,15 @@ socket.on('nsList', (nsData) => {
     console.log("The list of .rooms has arrived!!")
         // console.log(nsData)
     let namespacesDiv = document.querySelector('.namespaces');
-    namespacesDiv.innerHTML = "";
+    namespacesDiv.innerHTML = "<h2><u>Chit<< >>Chat</u></h2>";
     nsData.forEach((ns) => {
         namespacesDiv.innerHTML += `<div class="namespace" ns=${ns.endpoint} ><img src="${ns.img}" /></div>`
     })
 
-    // Add a clicklistener for each NS
+    //namespacesDiv.innerHTML += "About Us"
+    namespacesDiv.innerHTML += "<br>";
+    namespacesDiv.innerHTML += "About Us"
+        // Add a clicklistener for each NS
     console.log(document.getElementsByClassName('namespace'))
     Array.from(document.getElementsByClassName('namespace')).forEach((elem) => {
         // console.log(elem)

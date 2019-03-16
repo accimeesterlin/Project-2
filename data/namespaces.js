@@ -2,27 +2,37 @@
 const Namespace = require('../classes/Namespace');
 const Room = require('../classes/Room');
 
+
+
 // Set up the namespaces
 let namespaces = [];
-let wikiNs = new Namespace(0, 'Wiki', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSalOkVvdEH_1B205cAGBxEj0w73UUVNjYgdNs__S3usrRFUTyw', '/wiki');
-let mozNs = new Namespace(1, 'Mozilla', 'data:image/png;base64,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', '/mozilla');
-let linuxNs = new Namespace(2, 'Linux', 'http://anthonygiretti.com/wp-content/uploads/2018/12/swagger-logo-A49F73BAF4-seeklogo.com_.png', '/linux');
 
-namespaces.push(wikiNs, mozNs, linuxNs);
+let chitChat = new Namespace(0, 'ChitChat', 'https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/023033625151/media/84466341382/large/1552602472/enhance', '/chit');
+let wikiNs = new Namespace(1, 'Wiki', 'http://www.aikcu.org/wp-content/uploads/2012/03/ATT-Logo.jpg', '/wiki');
+let mozNs = new Namespace(2, 'Mozilla', 'https://www.ajc.com/rf/image_inline/Pub/p9/AJC/2018/04/20/Images/gt-new-color-2.jpg', '/mozilla');
+let linuxNs = new Namespace(3, 'Personal', 'http://pngimg.com/uploads/gmail_logo/gmail_logo_PNG9.png', '/linux');
+let fcc = new Namespace(4, 'fcc', 'https://i0.wp.com/www.keepcalmcoding.com/wp-content/uploads/2018/04/Free-code-camp-banner.jpg?w=960', '/fcc');
+
+namespaces.push(chitChat, wikiNs, mozNs, linuxNs, fcc);
 
 // Make the main room and add it to rooms. it will ALWAYS be 0
-wikiNs.addRoom(new Room(0, 'New Articles', 'Wiki'));
-wikiNs.addRoom(new Room(1, 'New Technology', 'Wiki'));
-wikiNs.addRoom(new Room(2, 'Jobs', 'Wiki'));
-
-mozNs.addRoom(new Room(0, 'Vue', 'Mozilla'));
-mozNs.addRoom(new Room(1, 'Angular', 'Mozilla'));
-mozNs.addRoom(new Room(2, 'React', 'Mozilla'));
+wikiNs.addRoom(new Room(0, 'Att Employee Chatspace', 'Wiki'));
+wikiNs.addRoom(new Room(1, 'Supervisor Chat', 'Wiki'));
+wikiNs.addRoom(new Room(2, 'Workgroup Chat', 'Wiki'));
 
 
-linuxNs.addRoom(new Room(0, 'Nodejs', 'Linux'));
-linuxNs.addRoom(new Room(1, 'Testing', 'Linux'));
-linuxNs.addRoom(new Room(2, 'Deployment', 'Linux'));
+mozNs.addRoom(new Room(0, 'Class Activities', 'Mozilla'));
+mozNs.addRoom(new Room(1, 'Class Announcements', ''));
+mozNs.addRoom(new Room(2, 'Project 2', 'Mozilla'));
+mozNs.addRoom(new Room(3, 'Project 3', 'Mozilla'));
+mozNs.addRoom(new Room(4, 'Homework Questions'));
+mozNs.addRoom(new Room(5, 'Pre-work Questions'));
+mozNs.addRoom(new Room(6, 'Class Slides'));
+mozNs.addRoom(new Room(7, 'Virtual Group'));
 
+linuxNs.addRoom(new Room(0, 'Personal', 'Linux'));
+linuxNs.addRoom(new Room(1, 'Test Server', 'Linux'));
+linuxNs.addRoom(new Room(2, 'Mail Server', 'Linux'));
+linuxNs.addRoom(new Room(3, 'Kernal Development', 'Linux'));
 
 module.exports = namespaces;

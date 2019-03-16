@@ -8,15 +8,17 @@ body{
     min-height: 100vh;
     color: #ABB2BF;
     text-align: center;
+    
 
 }
 
 .namespaces img{
-    margin-top: 10px;
+    margin-top: 15px;
     background-color: #ABB2BF;
     border-radius: 10px;
     cursor: pointer;
-    width:120px;
+    width:115px;
+    height: 80px;
 }
 
 .add-room{
@@ -31,7 +33,10 @@ body{
     cursor: pointer;
     list-style-type: none;
     padding: 0px 15px;
-}
+    margin-top:10px;
+    font-weight: bolder;
+    font-size: 12pt;
+    }
 
 .room-list li span{
     margin-right: 5px;
@@ -57,7 +62,7 @@ body{
 }
 
 .room-square{
-    margin:10px;
+    margin:20px;
 }
 
 #new-room{
@@ -69,10 +74,13 @@ body{
     position: relative;
     padding-top: 10px;
 }
+
 .chat-panel .curr-room-text{
     color: #282c34;
     font-size: 26px;
+    text-decoration: underline;
 }
+
 .curr-room-num-users, .search{
     font-size: 14px;
     color: #ABB2BF;
@@ -126,7 +134,7 @@ input {
 }
 
 #messages li .user-name-time span{
-    color: #ABB2BF;
+    color: rgb(100, 100, 100);
 }
 
 #messages li { 
@@ -136,6 +144,39 @@ input {
 }
 
 .card {
-    float: right;
-    float: bottom;
+  /*  float: right;
+  */  float: bottom;
+}
+
+.user-panel{
+    background-color: #3a3834;
+    min-height: 100vh;
+
+}
+
+#add-food{
+    background-color: rgb(96, 96, 230);
+    font-weight: bold;
+}
+
+#Add-Gifs{
+    text-align: center;
+}
+
+#images{
+    background-color: green;
+}
+
+#images img{
+    max-height: 130px;
+    max-width: 130px;
+    margin: 5px;
+}
+
+.food-item{
+    float:left;
+}
+
+.message-text{
+    font-size: 14pt;
 }

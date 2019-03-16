@@ -8,34 +8,10 @@
     },
     "scripts": {
         "test": "mocha",
-        "start": "node server.js",
-        "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
-        "heroku-postbuild": "echo This runs afterwards."
+        "start": "node server.js"
     },
     "engines": {
         "node": "10.13.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/project-2-group-7/Project-2.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/project-2-group-7/Project-2/issues"
-    },
-    "homepage": "https://github.com/project-2-group-7/Project-2#readme",
-    "name": "Project-2",
-    "version": "1.0.0",
-    "description": "Repository for GA Tech Coding Boot Camp - Project 2 Group 7",
-    "main": "server.js",
-    "directories": {
-        "test": "test"
-    },
-    "scripts": {
-        "test": "mocha",
-        "start": "node server.js"
     },
     "repository": {
         "type": "git",
@@ -53,8 +29,6 @@
         "cookie-parser": "^1.4.4",
         "cookieparser": "^0.1.0",
         "body-parser": "^1.18.3",
-        "cookie-parser": "^1.4.4",
-        "cookieparser": "^0.1.0",
         "dotenv": "^6.2.0",
         "eslint": "^5.15.1",
         "express": "^4.16.4",
@@ -79,5 +53,4 @@
         "mocha": "^5.2.0",
         "prettier": "^1.13.7"
     }
-
 }
