@@ -2,7 +2,6 @@
 
 module.exports = function(app, path) {
 
-
     app.get('/', function(req, res) {
         res.sendFile(path.join(__dirname, "../views/layouts/main.html"));
     });
@@ -16,7 +15,6 @@ module.exports = function(app, path) {
     app.get('/dashboard', function(req, res) {
         res.sendFile(path.join(__dirname, "../views/chat.html"));
     });
-
     // app.use(function(req, res, next){
     //   res.status(404);
 
@@ -42,7 +40,6 @@ module.exports = function(app, path) {
     //       });
     //     });
     //   });
-
     //   // Load example page and pass in an example by id
     //   app.get("/example/:id", function (req, res) {
     //     db.Example.findOne({
