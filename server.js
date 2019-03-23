@@ -97,10 +97,10 @@ if (process.env.NODE_ENV === "test") {
 // });
 startSocket(io);
 
-server.listen(3000);
 
 db.sequelize.sync(syncOptions).then(function () {
     // const io = socketio.listen(server);
+    server.listen(PORT);
 
     
     // const io = socketio.listen(server);
