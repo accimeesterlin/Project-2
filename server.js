@@ -16,12 +16,18 @@ const viewsController = require('./controllers/views-controller');
 // directory references
 const clientDir = path.join(__dirname, '../client');
 
+var PORT = process.env.PORT || 3000;
+
+var server = require('http').Server(app);
+var io = socketio(server);
+startSocket(io);
+
+server.listen(PORT);
 
 // console.log(namespaces[0]);
 // app.use(express.static(__dirname + '/public'));
 
 
-var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({
@@ -83,16 +89,16 @@ if (process.env.NODE_ENV === "test") {
 
 
 db.sequelize.sync(syncOptions).then(function () {
-    const server = app.listen(PORT, function () {
-        console.log(
-            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-            PORT,
-            PORT
-        );
-    });
+    // const server = app.listen(PORT, function () {
+    //     console.log(
+    //         "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    //         PORT,
+    //         PORT
+    //     );
+    // });
 
-    const io = socketio.listen(app.listen(process.env.PORT || 9000));
-    startSocket(io);
+    // const io = socketio.listen(app.listen(process.env.PORT || 9000));
+    // startSocket(io);
 });
 
 module.exports = app;
