@@ -1,8 +1,8 @@
 {
     "development": {
         "username": "root",
-        "password": "Password",
-        "database": "Bamazon",
+        "password": "Tex2atl7",
+        "database": "chatDB",
         "host": "localhost",
         "dialect": "mysql"
     },

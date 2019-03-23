@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-// const socketio = require('socket.io');
+const socketio = require('socket.io');
 var db = require('./models');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
@@ -9,8 +9,6 @@ var cookieParser = require('cookie-parser');
 var customAuthMiddleware = require('./middleware/custom-auth-middleware');
 var path = require('path');
 const startSocket = require('./io');
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
 // controller imports
 const userController = require('./controllers/user-controller');
 
@@ -82,28 +80,16 @@ if (process.env.NODE_ENV === "test") {
     syncOptions.force = true;
 }
 
-// io.on('connection', function(client) {
-//     console.log('Client connected...');
-
-//     client.on('join', function(data) {
-//         console.log(data);
-//     });
-
-//     client.on('messages', function(data) {
-//            client.emit('broad', data);
-//            client.broadcast.emit('broad',data);
-//     });
-
-// });
-startSocket(io);
 
 
 db.sequelize.sync(syncOptions).then(function () {
-    // const io = socketio.listen(server);
-    server.listen(PORT);
-
+    const server = app.listen(PORT, () => {
+        console.log('Server is starting at ', PORT);
+    });
     
-    // const io = socketio.listen(server);
+    const io = socketio(server);
+    startSocket(io);
+
 });
 
 module.exports = app;
