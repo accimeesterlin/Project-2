@@ -5,7 +5,7 @@ function joinNs(endpoint){
         // remove the eventListener before it's added again
         document.querySelector('#user-input').removeEventListener('submit',formSubmission)
     }
-    nsSocket = io(`http://localhost:9000${endpoint}`)
+    nsSocket = io(`https://boiling-brushlands-51676.herokuapp.com${endpoint}` || `http://localhost:3000${endpoint}`)
     nsSocket.on('nsRoomLoad',(nsRooms)=>{
         // console.log(nsRooms)
         let roomList = document.querySelector('.room-list');

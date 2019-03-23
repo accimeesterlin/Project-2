@@ -1,8 +1,8 @@
 const username = prompt("What is your username?")
     // const socket = io('http://localhost:9000'); // the / namespace/endpoint
-const socket = io('http://localhost:9000', {
+const socket = io('https://boiling-brushlands-51676.herokuapp.com/' || 'http://localhost:3000', {
     query: {
-        username
+        username: username
     }
 });
 let nsSocket = "";

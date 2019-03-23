@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const socketio = require('socket.io');
+// const socketio = require('socket.io');
 var db = require('./models');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
@@ -9,25 +9,20 @@ var cookieParser = require('cookie-parser');
 var customAuthMiddleware = require('./middleware/custom-auth-middleware');
 var path = require('path');
 const startSocket = require('./io');
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 // controller imports
 const userController = require('./controllers/user-controller');
-const viewsController = require('./controllers/views-controller');
 
 // directory references
 const clientDir = path.join(__dirname, '../client');
 
-var PORT = process.env.PORT || 3000;
-
-var server = require('http').Server(app);
-var io = socketio(server);
-startSocket(io);
-
-server.listen(PORT);
 
 // console.log(namespaces[0]);
 // app.use(express.static(__dirname + '/public'));
 
 
+var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({
@@ -35,7 +30,7 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 app.use(express.static('public'));
-app.use(express.static('views'));
+// app.use(express.static('views'));
 
 // Express middleware that allows POSTing data
 app.use(bodyParser.urlencoded({
@@ -50,7 +45,7 @@ app.use(customAuthMiddleware);
 
 // serve up the public folder so we can request static
 // assets from our html document
-app.use('/assets', express.static(clientDir));
+// app.use('/assets', express.static(clientDir));
 
 // set up handlebars
 app.set('views', path.join(__dirname, '/views'));
@@ -66,13 +61,13 @@ app.set('view engine', 'handlebars');
 
 // hook up our controllers
 app.use(userController);
-app.use(viewsController);
+// app.use(viewsController);
 
 
 // Requiring our models for syncing
 const DB = require('./models/index');
 
-require('./routes/htmlRoutes')(app);
+require('./routes/htmlRoutes')(app, path);
 // io.on = io.of('/').on = io.sockets.on
 // io.emit = io.of('/').emit = io.sockets.emit
 
@@ -87,18 +82,28 @@ if (process.env.NODE_ENV === "test") {
     syncOptions.force = true;
 }
 
+// io.on('connection', function(client) {
+//     console.log('Client connected...');
+
+//     client.on('join', function(data) {
+//         console.log(data);
+//     });
+
+//     client.on('messages', function(data) {
+//            client.emit('broad', data);
+//            client.broadcast.emit('broad',data);
+//     });
+
+// });
+startSocket(io);
+
+server.listen(3000);
 
 db.sequelize.sync(syncOptions).then(function () {
-    // const server = app.listen(PORT, function () {
-    //     console.log(
-    //         "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-    //         PORT,
-    //         PORT
-    //     );
-    // });
+    // const io = socketio.listen(server);
 
-    // const io = socketio.listen(app.listen(process.env.PORT || 9000));
-    // startSocket(io);
+    
+    // const io = socketio.listen(server);
 });
 
 module.exports = app;

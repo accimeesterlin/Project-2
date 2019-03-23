@@ -11,6 +11,7 @@ let namespaces = require('./data/namespaces');
 
 module.exports = (io) => {
     io.on('connection', function (socket) {
+        console.log('Socket is listening...');
         // console.log(socket.handshake)
         // build an array to send back with the img and endpoing for each NS
         let nsData = namespaces.map((ns) => {
